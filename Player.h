@@ -30,6 +30,7 @@ public:
 	//ŠJ•ú
 	void Release() override;
 	//XMFLOAT3 GetHeadPos();
+	XMMATRIX GetRotationMatrix() { return transform_.matRotate_; }
 
 };
 

@@ -1,5 +1,6 @@
 #include "DummyController.h"
 #include "Engine/Input.h"
+#include "Engine/Camera.h"
 #include "Player.h"
 
 DummyController::DummyController(GameObject* parent)
@@ -11,15 +12,16 @@ DummyController::DummyController(GameObject* parent)
 void DummyController::Initialize()
 {
 	transform_.position_ = { 0, 0, 0 };
+
+
 }
 
 void DummyController::Update()
 {
-
-
 	if (Input::IsKey(DIK_SPACE))
 	{
-		XMMATRIX mvec = transform_.matRotate_;
+		Player* player = (Player*)FindObject("Player");
+		XMMATRIX mvec = player->GetRotationMatrix();
 		XMVECTOR front{ 0, 0, 1, 0 };
 		front = XMVector3Transform(front, mvec);
 		XMVECTOR npos;

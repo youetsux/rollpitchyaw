@@ -19,7 +19,7 @@ void TestScene::Initialize()
 	//Instantiate<CarTest>(Instantiate<CarController>(this));
 	Instantiate<Ground>(this);
 	Instantiate <Player>(Instantiate<DummyController>(this));
-	Instantiate <TPCam>(Instantiate<DummyController>(this));
+	//Instantiate <TPCam>(Instantiate<DummyController>(this));
 
 }
 

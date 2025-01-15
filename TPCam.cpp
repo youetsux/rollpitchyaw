@@ -33,7 +33,7 @@ void TPCam::Update()
 	Player* pl = (Player*)FindObject("Player");
 	
 	Camera::SetPosition({ campos.x,  campos.y,  campos.z });
-	//
+		//
 	Camera::SetTarget({ pl->GetWorldPosition().x, pl->GetWorldPosition().y, pl->GetWorldPosition().z });
 }
 

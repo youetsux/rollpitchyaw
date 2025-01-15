@@ -20,9 +20,6 @@ void Player::Initialize()
 
 	hSilly = Model::Load("starship.fbx");
 
-	//transform_.scale_ = { 0.1,0.1,0.1 };
-	//transform_.scale_ = { 0.1, 0.1, 0.1 };
-	//transform_.position_ = { 0.0, 0.0, 0.0 };
 	transform_.matRotate_ = XMMatrixRotationRollPitchYaw(rpy.x, rpy.y, rpy.z);
 	transform_.matScale_ = XMMatrixScaling(0.1, 0.1, 0.1);
 	transform_.matTranslate_ = XMMatrixTranslation( 0,0,0 );
@@ -62,13 +59,15 @@ void Player::Update()
 	transform_.matScale_ = XMMatrixScaling(0.1, 0.1, 0.1);
 	transform_.matTranslate_ = XMMatrixTranslation(0, 0, 0);
 	transform_.isSetDirect = true;
+	//
+	Camera::SetPosition({ 0, 0.5, -1 });
+	Camera::SetTarget({ transform_.position_.x, transform_.position_.y, transform_.position_.z });
 }
 
 void Player::Draw()
 {
 		Model::SetTransform(hSilly, transform_);
 		//XMMATRIX m = Model::GetMatrix(hSilly);
-		
 		
 		Model::Draw(hSilly);
 }
